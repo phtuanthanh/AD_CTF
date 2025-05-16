@@ -35,10 +35,6 @@ ACTIONS = [
 
 
 class RunnerSupervisor:
-    """
-    Launches Checker Script Runners as individual processes and takes care of communicating with them.
-    """
-
     def __init__(self, metrics_queue):
         self.metrics_queue = metrics_queue
 

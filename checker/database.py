@@ -143,9 +143,7 @@ def _net_no_to_team_id(cursor, team_net_no, fake_team_id):
 
 
 def commit_result(db_conn, service_id, team_net_no, tick, result, prohibit_changes=False, fake_team_id=None):
-    """
-    Saves the result from a Checker run to game database.
-    """
+
 
     with transaction_cursor(db_conn, prohibit_changes) as cursor:
         team_id = _net_no_to_team_id(cursor, team_net_no, fake_team_id)
@@ -166,10 +164,6 @@ def commit_result(db_conn, service_id, team_net_no, tick, result, prohibit_chang
 
 
 def set_flagid(db_conn, service_id, team_net_no, tick, flagid, prohibit_changes=False, fake_team_id=None):
-    """
-    Stores a Flag ID in database.
-    In case of conflict, the previous Flag ID gets overwritten.
-    """
 
     with transaction_cursor(db_conn, prohibit_changes) as cursor:
         team_id = _net_no_to_team_id(cursor, team_net_no, fake_team_id)
@@ -188,9 +182,6 @@ def set_flagid(db_conn, service_id, team_net_no, tick, flagid, prohibit_changes=
 
 
 def load_state(db_conn, service_id, team_net_no, key, prohibit_changes=False):
-    """
-    Loads Checker state data from database.
-    """
 
     with transaction_cursor(db_conn, prohibit_changes) as cursor:
         cursor.execute('SELECT data FROM scoring_checkerstate state, registration_team team'
@@ -206,10 +197,6 @@ def load_state(db_conn, service_id, team_net_no, key, prohibit_changes=False):
 
 
 def store_state(db_conn, service_id, team_net_no, key, data, prohibit_changes=False, fake_team_id=None):
-    """
-    Stores Checker state data in database.
-    """
-
     with transaction_cursor(db_conn, prohibit_changes) as cursor:
         team_id = _net_no_to_team_id(cursor, team_net_no, fake_team_id)
         if team_id is None:

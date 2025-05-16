@@ -92,14 +92,6 @@ _setup()
 
 
 class BaseChecker:
-    """
-    Base class for individual Checker implementations. Checker Scripts must implement all methods.
-
-    Attributes:
-        ip: Vulnbox IP address of the team to be checked
-        team: Net number of the team to be checked
-    """
-
     def __init__(self, ip: str, team: int) -> None:
         self.ip = ip
         self.team = team
@@ -115,11 +107,6 @@ class BaseChecker:
 
 
 def get_flag(tick: int) -> str:
-    """
-    May be called by Checker Scripts to get the flag for a given tick, for the team and service of the
-    current run. The returned flag can be used for both placement and checks.
-    """
-
     if not isinstance(tick, int):
         raise TypeError('tick must be of type int')
 
@@ -139,10 +126,6 @@ def get_flag(tick: int) -> str:
 
 
 def set_flagid(data: str) -> None:
-    """
-    Stores the Flag ID for the current team and tick.
-    """
-
     if not isinstance(data, str):
         raise TypeError('data must be of type str')
     if len(data) > 200:
@@ -157,11 +140,6 @@ def set_flagid(data: str) -> None:
 
 
 def store_state(key: str, data: Any) -> None:
-    """
-    Allows a Checker Script to store arbitrary Python data persistently across runs. Data is stored per
-    service and team with the given key as an additional identifier.
-    """
-
     if not isinstance(key, str):
         raise TypeError('key must be of type str')
 
@@ -184,11 +162,6 @@ def store_state(key: str, data: Any) -> None:
 
 
 def load_state(key: str) -> Any:
-    """
-    Allows to retrieve data stored through store_state(). If no data exists for the given key (and the
-    current service and team), None is returned.
-    """
-
     if not isinstance(key, str):
         raise TypeError('key must be of type str')
 
@@ -213,10 +186,6 @@ def load_state(key: str) -> Any:
 
 
 def run_check(checker_cls: Type[BaseChecker]) -> None:
-    """
-    Launch execution of the specified Checker implementation. Must be called by all Checker Scripts.
-    """
-
     if len(sys.argv) != 4:
         raise Exception('Invalid arguments, usage: {} <ip> <team-net-no> <tick>'.format(sys.argv[0]))
 

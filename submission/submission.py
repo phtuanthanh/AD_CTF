@@ -245,7 +245,6 @@ async def handle_team_connection(reader, writer, db_conn, params, client_addr, c
         "╚" + "═" * 40 + "╝\n\n"
     )
     writer.write(intro.encode('utf-8'))
-# ...existing code...
     line_start_time = None
 
     while True:

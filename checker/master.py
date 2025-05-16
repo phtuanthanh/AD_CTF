@@ -268,14 +268,6 @@ class MasterLoop:
 
 
     def step(self):
-        """
-        Handles a request from the supervisor, kills overdue tasks and launches new ones.
-        Only processes one request at a time to make sure that launch_tasks() gets called regularly and
-        long-running tasks get killed, at the cost of accumulating a backlog of messages.
-
-        Returns:
-            A boolean indicating whether a request was handled.
-        """
         logging.debug('In step')
         req = self.supervisor.get_request() 
         # Get message from the queue    
@@ -449,14 +441,6 @@ class MasterLoop:
             self.supervisor.start_runner(runner_args, self.sudo_user, task_info, self.logging_params)
 
     def update_launch_params(self, tick):
-        """
-        Determines the number of Checker tasks to start per launch.
-        Our goal here is to balance the load over a tick with some smearing (to make Checker fingerprinting
-        more difficult), while also ensuring that all teams get checked in every tick.
-        This implementation distributes the start of tasks evenly across the available time with some safety
-        margin at the end. The duration of a check is determined from previous ticks after the first 5 ticks,
-        before that the maximum is assumed.
-        """
 
         if tick < 5:
             # We don't know any bounds on Checker Script Runtime at the beginning
@@ -486,10 +470,6 @@ class MasterLoop:
 
 
 def get_monotonic_time():
-    """
-    Wrapper around time.monotonic() to enables mocking in test cases. Globally mocking time.monotonic()
-    breaks library code (e.g. multiprocessing in RunnerSupervisor).
-    """
 
     return time.monotonic()
 
