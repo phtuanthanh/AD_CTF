@@ -1,0 +1,13 @@
+{% extends 'base-common.html' %}
+
+{% block container %}
+<div id="page-content" class="container-fluid">
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert {{ message.tags }}" role="alert">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+
+    {% block content %}{% endblock %}
+</div>
+{% endblock %}

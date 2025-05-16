@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cập nhật thông tin cuộc thi</title>
+</head>
+
+<body>
+    <h2>Cập nhật thông tin cuộc thi</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="start">Thời gian bắt đầu:</label>
+        <input type="datetime-local" id="start" name="start" required><br><br>
+
+        <label for="end">Thời gian kết thúc:</label>
+        <input type="datetime-local" id="end" name="end" required><br><br>
+
+        <label for="flag_format">Format flag:</label>
+        <input type="text" id="flag_format" name="flag_format" required><br><br>
+
+        <label for="current_tick">Current tick:</label>
+        <input type="number" id="current_tick" name="current_tick" required><br><br>
+
+        <label for="tick_duration">Tick duration (giây):</label>
+        <input type="number" id="tick_duration" name="tick_duration" required><br><br>
+
+        <button type="submit">Cập nhật</button>
+    </form>
+</body>
+
+</html>

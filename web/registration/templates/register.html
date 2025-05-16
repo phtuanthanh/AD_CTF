@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load form_as_div %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{% block title %}{% trans 'Registration' %}{% endblock %}</h1>
+</div>
+
+<p class="lead">
+    {% blocktrans %}
+    Want to register a team for {{ competition_name }}? There you go:
+    {% endblocktrans %}
+</p>
+
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+
+    {{ user_form|as_div }}
+    {{ team_form|as_div }}
+
+    <button type="submit" class="btn btn-primary">{% trans 'Register' %}</button>
+</form>
+{% endblock %}

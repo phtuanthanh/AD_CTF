@@ -1,0 +1,86 @@
+/*
+ * Style sheet for some custom styles which cannot be achieved with Bootstrap.
+ */
+
+
+#page-content {
+    margin-bottom: 60px;
+}
+
+.nav-pills {
+    margin-bottom: 30px;
+}
+
+.bg-block {
+    padding: 15px;
+}
+
+.form-inline .form-group {
+    margin-right: 10px;
+}
+
+.form-inline .help-block {
+    /* Help texts don't really have much space in inline forms */
+    display: none;
+}
+
+.clearable-input-image {
+    vertical-align: top;
+}
+
+.flatpage-content img {
+    max-width: 100%;
+}
+
+th.border-left, td.border-left {
+    border-left: 2px solid #DDDDDD;
+}
+
+th.border-right, td.border-right {
+    border-right: 2px solid #DDDDDD;
+}
+
+.image-column {
+    width: 80px;
+}
+
+.team-image {
+    width: 50px;
+    max-height: 50px;
+    object-fit: contain;
+}
+
+.header-buttons {
+    margin-top: 20px;
+}
+
+#mail-teams-content {
+    margin-top: 40px;
+}
+
+img#load-spinner {
+    width: 1.7em;
+}
+
+img#load-spinner, button#refresh {
+    margin-right: 20px;
+}
+
+#history-table td {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#history-table td a {
+    /* Make the whole table cell clickable */
+    display: block;
+}
+
+#history-table td a:hover {
+    text-decoration: none;
+}
+
+#check-list {
+    margin-top: 20px;
+    padding-left: 20px;
+}

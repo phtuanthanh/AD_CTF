@@ -1,0 +1,59 @@
+table.table {
+        border: 1px solid #dee2e6;
+        background-color: #fff;
+    }
+
+    table.table th {
+        background-color: #f5f5f5;
+        color: #333;
+        text-align: center;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    table.table td {
+        vertical-align: middle;
+        text-align: center;
+        border-top: 1px solid #dee2e6;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    /* Highlighted columns */
+    .border-left {
+        border-left: 2px solid #aaa !important;
+    }
+
+    .border-right {
+        border-right: 2px solid #aaa !important;
+    }
+
+    td.border-left,
+    th.border-left {
+        background-color: #e9f7ef;
+        font-weight: bold;
+    }
+
+    .team-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        object-fit: cover;
+    }
+
+    .glyphicon-fire {
+        color: #e74c3c;
+    }
+
+    /* red */
+    .glyphicon-tower {
+        color: #2980b9;
+    }
+
+    /* blue */
+    .glyphicon-dashboard {
+        color: #27ae60;
+    }
+

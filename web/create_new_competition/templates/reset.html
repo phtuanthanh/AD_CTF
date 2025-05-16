@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reset Competition</title>
+</head>
+
+<body>
+    <h2>Bạn muốn xóa toàn bộ dữ liệu cuộc thi cũ đúng không?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Xóa dữ liệu</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+{% load i18n %}{% autoescape off %}{% url 'confirm_email' as confirm_path %}{% blocktrans %}Hi,
+
+someone (hopefully you) specified your email address as contact address for
+a {{ competition_name }} team.
+
+If you don't know what this is about, you can just ignore this mail.
+
+Otherwise, please visit this page to confirm your address:
+{{ protocol }}://{{ domain }}{{ confirm_path }}?user={{ user }}&token={{ token }}
+
+You need to do this, otherwise you will not be able to participate!
+
+Welcome to {{ competition_name }} and best regards,
+The organizing Team{% endblocktrans %}{% endautoescape %}
